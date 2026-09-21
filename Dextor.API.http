@@ -1,0 +1,6 @@
+@Dextor.API_HostAddress = http://localhost:5199
+
+GET {{Dextor.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

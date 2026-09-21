@@ -1,0 +1,132 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Application\\Dotnet\\API_PROJECT\\Dextor.API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C0DDBF8E-A19A-4CC3-BF5B-024B48FBF143}|Dextor.API.csproj|d:\\application\\dotnet\\api_project\\dextor.api\\models\\security\\pdsahash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0DDBF8E-A19A-4CC3-BF5B-024B48FBF143}|Dextor.API.csproj|solutionrelative:models\\security\\pdsahash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0DDBF8E-A19A-4CC3-BF5B-024B48FBF143}|Dextor.API.csproj|d:\\application\\dotnet\\api_project\\dextor.api\\controllers\\tokencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0DDBF8E-A19A-4CC3-BF5B-024B48FBF143}|Dextor.API.csproj|solutionrelative:controllers\\tokencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0DDBF8E-A19A-4CC3-BF5B-024B48FBF143}|Dextor.API.csproj|d:\\application\\dotnet\\api_project\\dextor.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0DDBF8E-A19A-4CC3-BF5B-024B48FBF143}|Dextor.API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0DDBF8E-A19A-4CC3-BF5B-024B48FBF143}|Dextor.API.csproj|d:\\application\\dotnet\\api_project\\dextor.api\\models\\bindingmodel\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0DDBF8E-A19A-4CC3-BF5B-024B48FBF143}|Dextor.API.csproj|solutionrelative:models\\bindingmodel\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0DDBF8E-A19A-4CC3-BF5B-024B48FBF143}|Dextor.API.csproj|d:\\application\\dotnet\\api_project\\dextor.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C0DDBF8E-A19A-4CC3-BF5B-024B48FBF143}|Dextor.API.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0DDBF8E-A19A-4CC3-BF5B-024B48FBF143}|Dextor.API.csproj|d:\\application\\dotnet\\api_project\\dextor.api\\data\\irepositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0DDBF8E-A19A-4CC3-BF5B-024B48FBF143}|Dextor.API.csproj|solutionrelative:data\\irepositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PdsaHash.cs",
+              "DocumentMoniker": "D:\\Application\\Dotnet\\API_PROJECT\\Dextor.API\\Models\\Security\\PdsaHash.cs",
+              "RelativeDocumentMoniker": "Models\\Security\\PdsaHash.cs",
+              "ToolTip": "D:\\Application\\Dotnet\\API_PROJECT\\Dextor.API\\Models\\Security\\PdsaHash.cs",
+              "RelativeToolTip": "Models\\Security\\PdsaHash.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAADwvxIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-21T12:16:19.111Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Application\\Dotnet\\API_PROJECT\\Dextor.API\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\Application\\Dotnet\\API_PROJECT\\Dextor.API\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-21T12:10:01.546Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Application\\Dotnet\\API_PROJECT\\Dextor.API\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Application\\Dotnet\\API_PROJECT\\Dextor.API\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-21T11:59:03.218Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "D:\\Application\\Dotnet\\API_PROJECT\\Dextor.API\\Data\\IRepositories\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "Data\\IRepositories\\IUserRepository.cs",
+              "ToolTip": "D:\\Application\\Dotnet\\API_PROJECT\\Dextor.API\\Data\\IRepositories\\IUserRepository.cs",
+              "RelativeToolTip": "Data\\IRepositories\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-21T11:41:42.107Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DatabaseContext.cs",
+              "DocumentMoniker": "D:\\Application\\Dotnet\\API_PROJECT\\Dextor.API\\Models\\BindingModel\\DatabaseContext.cs",
+              "RelativeDocumentMoniker": "Models\\BindingModel\\DatabaseContext.cs",
+              "ToolTip": "D:\\Application\\Dotnet\\API_PROJECT\\Dextor.API\\Models\\BindingModel\\DatabaseContext.cs",
+              "RelativeToolTip": "Models\\BindingModel\\DatabaseContext.cs",
+              "ViewState": "AgIAAEAAAAAAAAAAAADwv1QAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-21T11:32:36.046Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TokenController.cs",
+              "DocumentMoniker": "D:\\Application\\Dotnet\\API_PROJECT\\Dextor.API\\Controllers\\TokenController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TokenController.cs",
+              "ToolTip": "D:\\Application\\Dotnet\\API_PROJECT\\Dextor.API\\Controllers\\TokenController.cs*",
+              "RelativeToolTip": "Controllers\\TokenController.cs*",
+              "ViewState": "AgIAAE0AAAAAAAAAAADgv1kAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-21T06:48:09.614Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedHeight": 57,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
