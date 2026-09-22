@@ -19,7 +19,7 @@
     "ContainingType": "Dextor.API.Controllers.TokenController",
     "Method": "GetToken",
     "RelativePath": "api/token",
-    "HttpMethod": "POST",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [

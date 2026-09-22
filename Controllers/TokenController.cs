@@ -37,7 +37,7 @@ public class TokenController : ControllerBase
     }
 
     // FIX 2: Restrict to Form-UrlEncoded (Standard OAuth2) to prevent binding crashes
-    [HttpPost("api/token")]
+    [HttpGet("api/token")]
     [Consumes("application/x-www-form-urlencoded")]
     public async Task<IActionResult> GetToken([FromForm] TokenRequest request)
     {
@@ -49,7 +49,7 @@ public class TokenController : ControllerBase
             var applicationType = request.ApplicationType ?? string.Empty;
             var versionNo = string.IsNullOrWhiteSpace(request.ERPVersionNo) ? "1.0" : request.ERPVersionNo;
 
-            // 1. Basic Validations
+
             if (string.IsNullOrWhiteSpace(username))
             {
                 return BadRequest(new { error = "invalid_grant", error_description = "Please provide user name" });
@@ -65,7 +65,7 @@ public class TokenController : ControllerBase
                 return BadRequest(new { error = "empty_device_info", error_description = "Unique Serial No Is Empty" });
             }
 
-            // 2. Find User
+
             var anUser = _userRepository.Find(a => a.UserName == username);
             if (anUser == null)
             {
@@ -77,7 +77,7 @@ public class TokenController : ControllerBase
                 return BadRequest(new { IsSuccess = "false", error = "employee_tag", error_description = "Incomplete employee information with your user name" });
             }
 
-            // 3. User Details View Query
+
             var userDetails = await _db.Database
                 .SqlQueryRaw<vUser>("SELECT * FROM v_User WHERE ISNULL(IsActive, 0) = 1 AND UserName = {0}", username)
                 .FirstOrDefaultAsync();
@@ -87,18 +87,15 @@ public class TokenController : ControllerBase
                 return BadRequest(new { error = "No Active User Found", error_description = "No Active User Found" });
             }
 
-            // 4. Password Verification
             var mph3 = new PdsaHash(PdsaHash.PdsaHashType.MD5);
             var hashedInputPassword = mph3.CreateHash(password, userDetails.Salt);
 
-          //  var test = CrackLegacyHash(password, userDetails.Salt,userDetails.Password);
 
             if (hashedInputPassword != userDetails.Password)
             {
                 return BadRequest(new { IsSuccess = "false", error = "invalid_grant", error_description = "Provided username or password is incorrect" });
             }
 
-            // 5. Android Device Registration Check
             if (applicationType.Equals("ANDROID", StringComparison.OrdinalIgnoreCase))
             {
                 var aRegistration = _userRegistrationRepository.Find(a =>
@@ -122,22 +119,18 @@ public class TokenController : ControllerBase
                 }
             }
 
-            // 6. Build Permissions JSON
             var permissionKeys = (userDetails.PermissionKey ?? string.Empty).Split(',', StringSplitOptions.RemoveEmptyEntries).ToList();
             var userPermissions = permissionKeys
                 .Select(pk => new UserPermission { UserID = userDetails.UserID, PermissionKey = pk })
                 .ToList();
             var menuPermissionListString = JsonSerializer.Serialize(userPermissions);
 
-            // 7. Fetch System Version
             var erpVersionNo = await _db.Database
-                .SqlQueryRaw<int>("SELECT ERPVersionNo FROM t_ThisSystem WHERE ID = 1")
+                .SqlQueryRaw<int>("SELECT ERPVersionNo AS Value FROM t_ThisSystem WHERE ID = 1")
                 .FirstOrDefaultAsync();
 
-            // 8. Generate JWT Token
             var tokenString = GenerateJwt(userDetails, erpVersionNo, menuPermissionListString);
 
-            // 9. Return the exact response payload expected by old clients
             var response = new TokenResponse
             {
                 AccessToken = tokenString,
@@ -189,69 +182,18 @@ public class TokenController : ControllerBase
             new Claim("UserId", user.UserID.ToString()),
             new Claim("UserName", user.UserName ?? ""),
             new Claim("ERPVersionNo", erpVersionNo.ToString()),
-            new Claim("MenupermissionList", menuPermissions)
+            //new Claim("MenupermissionList", menuPermissions)
         };
 
         var token = new JwtSecurityToken(
             issuer: jwtSettings["Issuer"],
             audience: jwtSettings["Audience"],
             claims: claims,
-            expires: DateTime.UtcNow.AddDays(1),
+            //expires: DateTime.UtcNow.AddDays(1),
+            expires: DateTime.UtcNow.AddMinutes(10), // 24 hours expiration
             signingCredentials: creds
         );
 
         return new JwtSecurityTokenHandler().WriteToken(token);
-    }
-
-
-    private string CrackLegacyHash(string password, string salt, string targetHash)
-    {
-        var encodings = new Dictionary<string, Encoding>
-    {
-        { "UTF8", Encoding.UTF8 },
-        { "ASCII", Encoding.ASCII },
-        { "Unicode (Default .NET 4.5)", Encoding.Unicode }
-    };
-
-        using var md5 = System.Security.Cryptography.MD5.Create();
-
-        foreach (var enc in encodings)
-        {
-            // 1. Password + Salt
-            if (Convert.ToBase64String(md5.ComputeHash(enc.Value.GetBytes(password + salt))) == targetHash)
-                return $"MATCH! Use {enc.Key} and order: plainText + salt";
-
-            // 2. Salt + Password
-            if (Convert.ToBase64String(md5.ComputeHash(enc.Value.GetBytes(salt + password))) == targetHash)
-                return $"MATCH! Use {enc.Key} and order: salt + plainText";
-
-            // 3. Just Password (no salt used)
-            if (Convert.ToBase64String(md5.ComputeHash(enc.Value.GetBytes(password))) == targetHash)
-                return $"MATCH! Use {enc.Key} and ignore the salt completely.";
-
-            // 4. Base64 Decoded Salt
-            try
-            {
-                byte[] pwdBytes = enc.Value.GetBytes(password);
-                byte[] saltBytes = Convert.FromBase64String(salt);
-
-                // Password Bytes + Salt Bytes
-                byte[] combo1 = new byte[pwdBytes.Length + saltBytes.Length];
-                Buffer.BlockCopy(pwdBytes, 0, combo1, 0, pwdBytes.Length);
-                Buffer.BlockCopy(saltBytes, 0, combo1, pwdBytes.Length, saltBytes.Length);
-                if (Convert.ToBase64String(md5.ComputeHash(combo1)) == targetHash)
-                    return $"MATCH! Base64 Decode the Salt, then Password + Salt using {enc.Key}";
-
-                // Salt Bytes + Password Bytes
-                byte[] combo2 = new byte[pwdBytes.Length + saltBytes.Length];
-                Buffer.BlockCopy(saltBytes, 0, combo2, 0, saltBytes.Length);
-                Buffer.BlockCopy(pwdBytes, 0, combo2, saltBytes.Length, pwdBytes.Length);
-                if (Convert.ToBase64String(md5.ComputeHash(combo2)) == targetHash)
-                    return $"MATCH! Base64 Decode the Salt, then Salt + Password using {enc.Key}";
-            }
-            catch { }
-        }
-
-        return "No match found. The legacy PDSA class did something custom.";
     }
 }

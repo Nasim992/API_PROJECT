@@ -54,7 +54,7 @@ builder.Services.AddSwaggerGen(c =>
     // 2. UPDATED SWAGGER CONFIG (Foolproof HTTP Scheme)
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        Description = "JWT Authorization header. Just paste your token string below (no need to type 'Bearer ').",
+        Description = "JWT Authorization header.",
         Name = "Authorization",
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.Http, // Changed from ApiKey to Http
@@ -95,25 +95,27 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuerSigningKey = true,
         ValidIssuer = jwtSettings["Issuer"],
         ValidAudience = jwtSettings["Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(key)
+        IssuerSigningKey = new SymmetricSecurityKey(key),
+        RequireExpirationTime = true,
+        ClockSkew = TimeSpan.Zero // Add this to force exact expiration
     };
 
     // 3. ADDED DIAGNOSTIC EVENTS TO CATCH THE ERROR
-    options.Events = new JwtBearerEvents
-    {
-        OnAuthenticationFailed = context =>
-        {
-            Console.WriteLine("\n=== TOKEN VALIDATION FAILED ===");
-            Console.WriteLine(context.Exception.Message);
-            Console.WriteLine("===============================\n");
-            return Task.CompletedTask;
-        },
-        OnTokenValidated = context =>
-        {
-            Console.WriteLine("\n=== TOKEN VALIDATED SUCCESSFULLY ===\n");
-            return Task.CompletedTask;
-        }
-    };
+    //options.Events = new JwtBearerEvents
+    //{
+    //    OnAuthenticationFailed = context =>
+    //    {
+    //        Console.WriteLine("\n=== TOKEN VALIDATION FAILED ===");
+    //        Console.WriteLine(context.Exception.Message);
+    //        Console.WriteLine("===============================\n");
+    //        return Task.CompletedTask;
+    //    },
+    //    OnTokenValidated = context =>
+    //    {
+    //        Console.WriteLine("\n=== TOKEN VALIDATED SUCCESSFULLY ===\n");
+    //        return Task.CompletedTask;
+    //    }
+    //};
 });
 
 builder.Services.AddAuthorization();

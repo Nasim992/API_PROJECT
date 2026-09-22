@@ -44,45 +44,47 @@ namespace Dextor.API.Data.Repositories
             return _databaseContext.Database.SqlQueryRaw<SessionClass>(sGetSessionData).FirstOrDefault();
         }
 
-        public UserViewModel? GetTechnicianByUserName(string userName)
-        {
-            string query = @"SELECT UserId,b.EmployeeId,EmployeeName,UserName,
-                            UserFullName,Name TechnicianName,TechnicianId,b.EmployeeCode
-                            from t_User a,t_Employee b,t_CSDTechnician c
-                            WHere a.EmployeeId = b.EmployeeId
-                            AND c.EmployeeCode = b.EmployeeCode
-                            AND b.EmpStatus in(1,2) and UserName = '{0}' ";
-            query = string.Format(query, userName.Trim());
+        //public UserViewModel? GetTechnicianByUserName(string userName)
+        //{
+        //    string query = @"SELECT UserId,b.EmployeeId,EmployeeName,UserName,
+        //                    UserFullName,Name TechnicianName,TechnicianId,b.EmployeeCode
+        //                    from t_User a,t_Employee b,t_CSDTechnician c
+        //                    WHere a.EmployeeId = b.EmployeeId
+        //                    AND c.EmployeeCode = b.EmployeeCode
+        //                    AND b.EmpStatus in(1,2) and UserName = '{0}' ";
+        //    query = string.Format(query, userName.Trim());
 
-            return _databaseContext.Database.SqlQueryRaw<UserViewModel>(query).FirstOrDefault();
-        }
+        //    return _databaseContext.Database.SqlQueryRaw<UserViewModel>(query).FirstOrDefault();
+        //}
 
-        public int GetUserIdByTechnicianId(int technicianId)
-        {
-            string query = @"SELECT UserId from t_CSDTechnician a,t_Employee b,t_User c
-                            WHERE a.EmployeeCode = b.EmployeeCode 
-                            AND b.EmployeeId = c.EmployeeId and TechnicianID = {0}";
-            query = string.Format(query, technicianId);
+        //public int GetUserIdByTechnicianId(int technicianId)
+        //{
+        //    // FIX: Added 'AS Value' to map the primitive int
+        //    string query = @"SELECT UserId AS Value from t_CSDTechnician a,t_Employee b,t_User c
+        //            WHERE a.EmployeeCode = b.EmployeeCode 
+        //            AND b.EmployeeId = c.EmployeeId and TechnicianID = {0}";
 
-            return _databaseContext.Database.SqlQueryRaw<int>(query).FirstOrDefault();
-        }
+        //    query = string.Format(query, technicianId);
 
-        public UserViewModel? GetTsoTsmUser(string userName)
-        {
-            string query = @"SELECT TOP 1 a.EmployeeId,d.EmployeeCode,d.EmployeeName,
-                            a.UserId,a.UserName From t_User a,t_MarketGroup b,
-                            t_Customer c,t_Employee d
-                            WHERE a.EmployeeId = b.EmployeeId 
-                            AND c.MarketGroupId = b.MarketGroupId 
-                            AND d.EmployeeId = a.EmployeeId
-                            AND b.MarketGroupType = 2
-                            AND d.EMPStatus in(1,2)
-                            AND c.IsActive = 1
-                            AND UserName = '{0}' ";
-            query = string.Format(query, userName);
+        //    return _databaseContext.Database.SqlQueryRaw<int>(query).FirstOrDefault();
+        //}
 
-            return _databaseContext.Database.SqlQueryRaw<UserViewModel>(query).FirstOrDefault();
-        }
+        //public UserViewModel? GetTsoTsmUser(string userName)
+        //{
+        //    string query = @"SELECT TOP 1 a.EmployeeId,d.EmployeeCode,d.EmployeeName,
+        //                    a.UserId,a.UserName From t_User a,t_MarketGroup b,
+        //                    t_Customer c,t_Employee d
+        //                    WHERE a.EmployeeId = b.EmployeeId 
+        //                    AND c.MarketGroupId = b.MarketGroupId 
+        //                    AND d.EmployeeId = a.EmployeeId
+        //                    AND b.MarketGroupType = 2
+        //                    AND d.EMPStatus in(1,2)
+        //                    AND c.IsActive = 1
+        //                    AND UserName = '{0}' ";
+        //    query = string.Format(query, userName);
+
+        //    return _databaseContext.Database.SqlQueryRaw<UserViewModel>(query).FirstOrDefault();
+        //}
 
         public bool InsertUser(User ouser)
         {

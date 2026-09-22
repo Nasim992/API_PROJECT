@@ -1,9 +1,12 @@
+using Dextor.API.Security;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Dextor.API.Controllers
 {
-    [Authorize]
+    [ThirdPartyAuthorize("VendorA","VendorC")]
+    // [ThirdPartyAuthorize]
+    //[Authorize]
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase

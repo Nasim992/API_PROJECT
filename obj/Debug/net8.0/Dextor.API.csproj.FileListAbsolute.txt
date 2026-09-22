@@ -88,3 +88,4 @@ D:\Application\Dotnet\API_PROJECT\Dextor.API\bin\Debug\net8.0\runtimes\linux\lib
 D:\Application\Dotnet\API_PROJECT\Dextor.API\bin\Debug\net8.0\runtimes\osx\lib\net8.0\System.DirectoryServices.Protocols.dll
 D:\Application\Dotnet\API_PROJECT\Dextor.API\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.DirectoryServices.Protocols.dll
 D:\Application\Dotnet\API_PROJECT\Dextor.API\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+D:\Application\Dotnet\API_PROJECT\Dextor.API\obj\Debug\net8.0\Dextor.API.sourcelink.json

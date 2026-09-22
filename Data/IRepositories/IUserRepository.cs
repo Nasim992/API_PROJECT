@@ -7,9 +7,6 @@ namespace Dextor.API.Data.IRepositories
     {
         List<User> GetUserDetails(int nUserId);
         SessionClass GetSessionData(string sUserName);
-        UserViewModel GetTechnicianByUserName(string userName);
-        int GetUserIdByTechnicianId(int technicianId);
-        UserViewModel GetTsoTsmUser(string userName);
         bool InsertUser(User user);
         bool EditUser(User user, string isPasswordReset);
 

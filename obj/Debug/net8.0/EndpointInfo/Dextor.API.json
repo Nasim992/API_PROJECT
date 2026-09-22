@@ -37,7 +37,7 @@
       }
     },
     "/api/token": {
-      "post": {
+      "get": {
         "tags": [
           "Token"
         ],
@@ -180,7 +180,7 @@
     "securitySchemes": {
       "Bearer": {
         "type": "http",
-        "description": "JWT Authorization header. Just paste your token string below (no need to type 'Bearer ').",
+        "description": "JWT Authorization header.",
         "scheme": "bearer"
       }
     }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Dextor.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f48f9853dde551d289b6ee42cd1da718633b189c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Dextor.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Dextor.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
