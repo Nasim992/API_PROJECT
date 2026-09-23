@@ -4,7 +4,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace Dextor.API.Controllers;
+namespace Dextor.API.Controllers.Authentication;
 
 [ApiController]
 [Route("api/[controller]")]

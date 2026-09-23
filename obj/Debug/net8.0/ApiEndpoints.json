@@ -1,6 +1,6 @@
 [
   {
-    "ContainingType": "Dextor.API.Controllers.AuthController",
+    "ContainingType": "Dextor.API.Controllers.Authentication.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/login",
     "HttpMethod": "POST",
@@ -9,14 +9,14 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "Dextor.API.Controllers.LoginRequest",
+        "Type": "Dextor.API.Controllers.Authentication.LoginRequest",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Dextor.API.Controllers.TokenController",
+    "ContainingType": "Dextor.API.Controllers.Authentication.TokenController",
     "Method": "GetToken",
     "RelativePath": "api/token",
     "HttpMethod": "GET",

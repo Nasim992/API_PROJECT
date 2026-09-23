@@ -11,7 +11,7 @@ using System.Text;
 using System.Text.Json;
 using Dextor.API.Models.BindingModel;
 
-namespace Dextor.API.Controllers;
+namespace Dextor.API.Controllers.Authentication;
 
 [ApiController]
 public class TokenController : ControllerBase
@@ -176,7 +176,6 @@ public class TokenController : ControllerBase
             new Claim(ClaimTypes.Name, user.UserFullName ?? user.UserName ?? ""),
             new Claim(ClaimTypes.Role, user.RoleName ?? ""),
             
-            // FIX 1: Added the question mark (?) after EmployeeID to handle nullable integers safely
             new Claim("EmployeeId", user.EmployeeID.ToString() ?? "-1"),
 
             new Claim("UserId", user.UserID.ToString()),
@@ -190,7 +189,7 @@ public class TokenController : ControllerBase
             audience: jwtSettings["Audience"],
             claims: claims,
             //expires: DateTime.UtcNow.AddDays(1),
-            expires: DateTime.UtcNow.AddMinutes(10), // 24 hours expiration
+            expires: DateTime.UtcNow.AddMinutes(10), // 10 minutes expiration
             signingCredentials: creds
         );
 
