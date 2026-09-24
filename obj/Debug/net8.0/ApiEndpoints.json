@@ -16,8 +16,209 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Dextor.API.Controllers.CommonController",
+    "Method": "PostSearchResult_Result",
+    "RelativePath": "api/common/get-result-post",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Dextor.API.Controllers.CommonController\u002BQueryRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Dextor.API.Controllers.CommonController",
+    "Method": "InsertUpdateByJson",
+    "RelativePath": "api/common/insert-update-json",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Dextor.API.Controllers.CommonController\u002BQueryRequestJson",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Dextor.API.Controllers.CommonController",
+    "Method": "GetSearchResult",
+    "RelativePath": "api/common/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Dextor.API.Controllers.CommonController",
+    "Method": "Search",
+    "RelativePath": "api/common/search-data",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Dextor.API.Controllers.CommonController\u002BSearchRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Dextor.API.Controllers.CommonController",
+    "Method": "search_dwdb",
+    "RelativePath": "api/common/search-dw-db",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Dextor.API.Controllers.CommonController",
+    "Method": "SearchResultIFS",
+    "RelativePath": "api/common/search-ifs-db",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Dextor.API.Controllers.CommonController\u002BQueryRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Dextor.API.Controllers.CommonController",
+    "Method": "SearchResultPos",
+    "RelativePath": "api/common/search-pos-master",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Dextor.API.Controllers.CommonController\u002BQueryRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Dextor.API.Controllers.CommonController",
+    "Method": "SearchResultPos_forapp",
+    "RelativePath": "api/common/search-pos-master-app",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Dextor.API.Controllers.CommonController\u002BQueryRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Dextor.API.Controllers.CommonController",
+    "Method": "PostSearchResult",
+    "RelativePath": "api/common/search-post",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Dextor.API.Controllers.CommonController\u002BQueryRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Dextor.API.Controllers.CommonController",
+    "Method": "GetSearchResult_Secondary",
+    "RelativePath": "api/common/search-secondary",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Dextor.API.Controllers.Authentication.TokenController",
-    "Method": "GetToken",
+    "Method": "TokenPost",
+    "RelativePath": "api/token",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "grant_type",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "password",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "UniqueSerialNo",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ApplicationType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ERPVersionNo",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Dextor.API.Controllers.Authentication.TokenController",
+    "Method": "TokenGet",
     "RelativePath": "api/token",
     "HttpMethod": "GET",
     "IsController": true,

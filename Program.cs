@@ -16,6 +16,7 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddHttpClient();
 
 // ==========================================================
 // 1. ADD YOUR DATABASE CONTEXTS HERE (WITH TIMEOUTS)
@@ -25,16 +26,16 @@ builder.Services.AddDbContext<DatabaseContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("WEBConnection"),
         sqlOptions => sqlOptions.CommandTimeout(60000)));
 
-//builder.Services.AddDbContext<POSDBContext>(options =>
-//    options.UseSqlServer(builder.Configuration.GetConnectionString("POSConnection"),
-//        sqlOptions => sqlOptions.CommandTimeout(60000)));
+builder.Services.AddDbContext<POSDBContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("POSConnection"),
+        sqlOptions => sqlOptions.CommandTimeout(60000)));
 
-//builder.Services.AddDbContext<DWDBContext>(options =>
-//    options.UseSqlServer(builder.Configuration.GetConnectionString("DWDBConnection"),
-//        sqlOptions => sqlOptions.CommandTimeout(60000)));
+builder.Services.AddDbContext<DWDBContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DWDBConnection"),
+        sqlOptions => sqlOptions.CommandTimeout(60000)));
 
-//builder.Services.AddDbContext<OracleDBContext>(options =>
-//    options.UseOracle(builder.Configuration.GetConnectionString("OracleConnection")));
+builder.Services.AddDbContext<OracleDBContext>(options =>
+    options.UseOracle(builder.Configuration.GetConnectionString("OracleConnection")));
 // ==========================================================
 
 
@@ -44,6 +45,7 @@ builder.Services.AddDbContext<DatabaseContext>(options =>
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserRegistrationRepository, UserRegistrationRepository>();
 builder.Services.AddScoped<IReportLogRepository, ReportLogRepository>();
+builder.Services.AddScoped<ICommonRepository, CommonRepository>();
 // ==========================================================
 
 
@@ -57,8 +59,8 @@ builder.Services.AddSwaggerGen(c =>
         Description = "JWT Authorization header.",
         Name = "Authorization",
         In = ParameterLocation.Header,
-        Type = SecuritySchemeType.Http, // Changed from ApiKey to Http
-        Scheme = "bearer"               // Swagger will auto-add "Bearer " for you
+        Type = SecuritySchemeType.Http, 
+        Scheme = "bearer"              
     });
 
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
